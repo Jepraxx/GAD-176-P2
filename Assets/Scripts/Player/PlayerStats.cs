@@ -6,15 +6,13 @@ public class PlayerStats : MonoBehaviour
 {
     public float moveSpeedStat;
     public int maxHealthStat;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float fireRate;
+    public float damage;
+
+    public float bulletSpeed;
+    public float bulletSpread;
+    public int bulletAmount;
+
+    public float bulletLifeTime;
 }

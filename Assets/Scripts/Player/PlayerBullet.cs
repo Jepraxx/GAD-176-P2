@@ -7,6 +7,7 @@ public class PlayerBullet : MonoBehaviour
     private Rigidbody2D rb;
 
     public float bulletSpeed;
+    public float damage;
     public float bulletLifeTime;
 
     // Start is called before the first frame update

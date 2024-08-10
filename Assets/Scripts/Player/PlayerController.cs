@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
     public int maxHealth;
     public int health;
 
+    public PlayerWeapons currentWeapon;
+
+    private bool isFiring = false;
+    private float fireTimer;
 
 
     public void RefreshStats()
@@ -24,7 +28,14 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        for(int i = 0; i < currentWeapon.weaponBulletAmount; i++)
+        {
+            Transform spawnedBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            PlayerBullet bullet = spawnedBullet.GetComponent<PlayerBullet>();
+            bullet.damage = currentWeapon.weaponDamage * (1 + -playerStats.damage);
+             bullet.bulletSpeed = currentWeapon.weaponBulletSpeed;
+            spawnedBullet.Rotate(0, 0, Random.Range(-currentWeapon.weaponBulletSpread, currentWeapon.weaponBulletSpread));
+        }
     }
 
     // Start is called before the first frame update
@@ -47,7 +58,22 @@ public class Player : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            isFiring = true;
+        }
+        if(Input.GetMouseButtonUp(0))
+        {
+            isFiring = false;
+        }
+
+        if(isFiring)
+        {
+            if(fireTimer > 1 / currentWeapon.weaponFireRate + (1 + -playerStats.fireRate))
+            {
+                fireTimer = 0;
+                Shoot();
+            }
+
+            fireTimer += Time.deltaTime;
         }
     }
 }
