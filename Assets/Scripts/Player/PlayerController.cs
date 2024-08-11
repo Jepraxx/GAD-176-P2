@@ -28,12 +28,13 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
-        for(int i = 0; i < currentWeapon.weaponBulletAmount; i++)
+        for(int i = 0; i < currentWeapon.weaponBulletAmount + playerStats.bulletAmount; i++)
         {
             Transform spawnedBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             PlayerBullet bullet = spawnedBullet.GetComponent<PlayerBullet>();
-            bullet.damage = currentWeapon.weaponDamage * (1 + -playerStats.damage);
-             bullet.bulletSpeed = currentWeapon.weaponBulletSpeed;
+            bullet.damage = currentWeapon.weaponDamage * (1 + playerStats.damage);
+            bullet.bulletSpeed = currentWeapon.weaponBulletSpeed * (1 + playerStats.bulletSpeed);
+            bullet.bulletLifeTime *= 1 + playerStats.bulletLifeTime;
             spawnedBullet.Rotate(0, 0, Random.Range(-currentWeapon.weaponBulletSpread, currentWeapon.weaponBulletSpread));
         }
     }
@@ -67,13 +68,14 @@ public class Player : MonoBehaviour
 
         if(isFiring)
         {
+            fireTimer += Time.deltaTime;
             if(fireTimer > 1 / currentWeapon.weaponFireRate + (1 + -playerStats.fireRate))
             {
                 fireTimer = 0;
                 Shoot();
             }
 
-            fireTimer += Time.deltaTime;
+            
         }
     }
 }
