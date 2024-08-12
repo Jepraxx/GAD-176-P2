@@ -33,9 +33,6 @@ namespace _Scripts.Skill_System
             {
                 switch (UpgradeData[0].StatType)
                 {
-                    case StatTypes.DoubleJump:
-                        SkillDescription = $"{SkillName} You have unlocked Double Jump";
-                        break;
 
                     case StatTypes.Dash:
                         SkillDescription = $"{SkillName} You have unlocked Dash";
@@ -81,7 +78,6 @@ namespace _Scripts.Skill_System
         Intelligence,
         Magic,
         Stamina,
-        DoubleJump,
         Dash,
         FireBall,
         Invisibility,

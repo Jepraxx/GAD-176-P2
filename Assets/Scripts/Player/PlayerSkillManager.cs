@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class PlayerSkillManager : MonoBehaviour
 {
     private int _strength, _dexterity, _intelligence, _magic, _stamina; //stats for the player
-    private int _doubleJump, _dash, _fireBall, _invisiblity; //unlocables for the player
+    private int  _dash, _fireBall, _invisiblity; //unlocables for the player
     private int _skillPoints;
 
     public int Strength => _strength;
@@ -15,7 +15,7 @@ public class PlayerSkillManager : MonoBehaviour
     public int Magic => _magic;
     public int Stamina => _stamina;
 
-    public bool DoubleJump => _doubleJump > 0;
+  
     public bool Dash => _dash > 0;
     public bool FireBall => _fireBall > 0;
     public bool Invisibility => _invisiblity > 0;
