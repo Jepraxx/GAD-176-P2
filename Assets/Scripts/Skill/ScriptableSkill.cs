@@ -33,7 +33,6 @@ namespace _Scripts.Skill_System
             {
                 switch (UpgradeData[0].StatType)
                 {
-
                     case StatTypes.Dash:
                         SkillDescription = $"{SkillName} You have unlocked Dash";
                         break;
@@ -64,6 +63,7 @@ namespace _Scripts.Skill_System
         }
     }
 
+    [System.Serializable]
     public class UpgradeData
     {
         public StatTypes StatType;
