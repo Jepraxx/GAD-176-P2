@@ -6,15 +6,39 @@ public class PlayerStats : MonoBehaviour
 {
     public float moveSpeedStat;
     public int maxHealthStat;
-    // Start is called before the first frame update
-    void Start()
+
+    public float fireRate;
+    public float damage;
+
+    public float bulletSpeed;
+    public int bulletAmount;
+
+    public float bulletLifeTime;
+
+    public float xpMultiplier;
+
+
+    public float xp;
+    public float lvlUpRequirement;
+    public float requirementIncrease = 50;
+    public int level;
+
+
+    public void GainXp(float gainedXp)
     {
-        
+        xp += gainedXp * (1 + xpMultiplier);
+
+        if (xp >= lvlUpRequirement)
+        {
+            LevelUp();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LevelUp()
     {
-        
+        level += 1;
+        lvlUpRequirement += requirementIncrease;
+
+        requirementIncrease += level * 10;
     }
 }
