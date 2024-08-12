@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This script is the base skeleton script and all the
@@ -24,12 +25,13 @@ public class SkelBase : MonoBehaviour
     // Find the player
     protected virtual void FindPlayer()
     {
-        target = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         if (target == null)
         {
             Debug.Log("Player not found! Make sure the player has the 'Player' tag.");
         }
     }
+   
 
     private void Update()
     {
@@ -48,4 +50,23 @@ public class SkelBase : MonoBehaviour
             Debug.Log("Target is null. Ensure the player is tagged correctly.");
         }
     }
+  /*  protected virtual void DamagePlayer(GameObject player)
+    {
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(1); // Adjust damage amount as needed
+
+            if (playerHealth.health <= 0)
+            {
+                HandlePlayerDeath(); // Handle what happens when the player dies
+            }
+        }
+    }
+
+    protected virtual void HandlePlayerDeath()
+    {
+        Debug.Log("Player has died! Restarting the level...");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Restart the current level
+    }*/
 }
