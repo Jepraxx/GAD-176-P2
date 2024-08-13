@@ -1,29 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class IceBullet : PlayerBullet
 {
+    //Variables
+    [SerializeField] private LayerMask enemyLayer; 
     [SerializeField] private GameObject iceWallPrefab; 
 
-    public float timer;
+    [SerializeField] private float detectionRadius = 10f; 
+    private bool enemyDetected = false; 
+    private float timer = 0f; 
 
     public override void BulletEffect()
     {
-        if(Physics2D.OverlapCircle(transform.position, 5, 7))
+        // Checking for enemies in the radius
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayer);
+        if (enemies.Length > 0)
         {
-            timer += Time.deltaTime;
+            enemyDetected = true; 
+        }
+        else
+        {
+            enemyDetected = false;
+            timer = 0f; 
         }
 
-        if(timer >= 1)
+        if (enemyDetected)
         {
-            Destroy(gameObject);
+            timer += Time.deltaTime; 
+
+            if (timer >= 1f)
+            {
+                Explode(); 
+            }
         }
     }
 
-    public override void OnDestroy()
+    private void Explode()
     {
-        GameObject iceWallSpawned = Instantiate(iceWallPrefab, transform.position, transform.rotation);
+        // Create an ice wall to stop the enemies
+        if (iceWallPrefab != null)
+        {
+            Instantiate(iceWallPrefab, transform.position, transform.rotation);
+        }
+        // Delete the bullet after exploding
+        Destroy(gameObject); 
+    }
+
+    // Draw the radius around bullet for detecting enemies
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }
+

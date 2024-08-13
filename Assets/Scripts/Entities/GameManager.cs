@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    // Use of C# event
     private void OnDestroy()
     {
         player.IsPlayerDeadEvent -= PlayerIsDead;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
+    // Using singletons
     void Awake()
     {
         if(instance == null)
@@ -37,11 +39,5 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         player.IsPlayerDeadEvent += PlayerIsDead;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

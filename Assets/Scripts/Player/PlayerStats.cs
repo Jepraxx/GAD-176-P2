@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    // variables 
     public float moveSpeedStat;
     public int maxHealthStat;
 
@@ -23,7 +24,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float requirementIncrease = 50;
     [SerializeField] private int level;
 
-
+    // Gaining exp with multiplier from stats
     public void GainXp(float gainedXp)
     {
         xp += gainedXp * (1 + xpMultiplier);
@@ -34,6 +35,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    // When required exp gained player level ups and increases requirements
     public void LevelUp()
     {
         level += 1;

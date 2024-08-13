@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class XpGem : MonoBehaviour
 {
+    // Variables 
     public float heldXp;
     private Transform player;
 
     void Start()
     {
+        // Searching for the player's position
         player = GameObject.FindObjectOfType<PlayerStats>().transform;
     }
 
+    // When player and gem touches player gain xp and gem deletes
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.TryGetComponent<PlayerStats>(out PlayerStats playerStats))
@@ -21,14 +24,11 @@ public class XpGem : MonoBehaviour
         }
     }
 
+    // Moving of them gem to the player
     void Update()
     {
-        if(Physics2D.OverlapCircle(transform.position, 0.1f, 3) != false)
-        {
-            Debug.Log("Замечен персонаж по цифре");
-            transform.position = Vector3.MoveTowards(transform.position, player.position, 1 * Time.deltaTime);
 
-        }
+        transform.position = Vector3.MoveTowards(transform.position, player.position, 1 * Time.deltaTime);
+
     }
-    //сделать физикс детекшн для гемов
 }

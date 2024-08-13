@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerAim : MonoBehaviour
 {
+    // Variables
     private Camera cam;
     [SerializeField] private float rotationSpeed;
 
@@ -17,7 +18,7 @@ public class PlayerAim : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    // Player's aim system
     void Update()
     {
         // print(Input.mousePosition);

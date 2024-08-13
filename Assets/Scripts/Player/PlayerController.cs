@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Variables
     private Rigidbody2D rb;
     private PlayerStats playerStats;
 
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private float fireTimer;
 
 
+    // Getting stats from PlayerStats script
     public void RefreshStats()
     {
         moveSpeed = playerStats.moveSpeedStat;
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Player movement
         private void PlayerMovement()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
@@ -48,6 +51,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(moveX * moveSpeed, moveY * moveSpeed);
     }
 
+    // Instantiating bullets and giving stats to bullets
         public void Shoot()
     {
         for(int i = 0; i < currentWeapon.weaponBulletAmount + playerStats.bulletAmount; i++)
@@ -58,11 +62,12 @@ public class PlayerController : MonoBehaviour
             bullet.damage = currentWeapon.weaponDamage * (1 + playerStats.damage);
             bullet.bulletSpeed = currentWeapon.weaponBulletSpeed * (1 + playerStats.bulletSpeed);
             bullet.bulletLifeTime *= 1 + playerStats.bulletLifeTime;
-            
+
             spawnedBullet.Rotate(0, 0, Random.Range(-currentWeapon.weaponBulletSpread, currentWeapon.weaponBulletSpread));
         }
     }
 
+    // Player shooting by holding the left botton of the mause
     private void Shooting()
     {
         if(Input.GetMouseButtonDown(0))
@@ -87,7 +92,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -97,7 +101,6 @@ public class PlayerController : MonoBehaviour
         health = maxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
         PlayerMovement();

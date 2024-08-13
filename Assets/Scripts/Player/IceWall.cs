@@ -6,7 +6,7 @@ public class IceWall : MonoBehaviour
 {
     public float timer;
 
-    // Update is called once per frame
+    // Timer to delete the wall
     void Update()
     {
         timer += Time.deltaTime;

@@ -174,4 +174,7 @@ MonoBehaviour:
   damage: 0
   bulletLifeTime: 2
   iceWallPrefab: {fileID: 6571400107882386467, guid: f51fba0174fa1439d91babe27a8e7daf, type: 3}
-  timer: 0
+  detectionRadius: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
