@@ -48,14 +48,14 @@ public class UIStatPanel : MonoBehaviour
             _StrengthLabel = uiDocument.rootVisualElement.Q<Label>("StrengthLabel");
             _IntelligenceLabel = uiDocument.rootVisualElement.Q<Label>("IntelligenceLabel");
             _MagicLabel = uiDocument.rootVisualElement.Q<Label>("MagicLabel");
-            _StaminaLabel = uiDocument.rootVisualElement.Q<Label>("StaminaLabel");
+            _StaminaLabel = uiDocument.rootVisualElement.Q<Label>("staminaLabel");
             _DexterityLabel = uiDocument.rootVisualElement.Q<Label>("DexterityLabel");
 
             _DashLabel = uiDocument.rootVisualElement.Q<Label>("DashLabel");
             _FireBallLabel = uiDocument.rootVisualElement.Q<Label>("FireBallLabel");
             _InvisibilityLabel = uiDocument.rootVisualElement.Q<Label>("InvisibilityLabel");
 
-            _SkillPointsLabel = uiDocument.rootVisualElement.Q<Label>("SkillPointsLabel");
+            _SkillPointsLabel = uiDocument.rootVisualElement.Q<Label>("SkillPoints_Label");
 
             if (_StrengthLabel == null || _IntelligenceLabel == null || _MagicLabel == null || _StaminaLabel == null || _DexterityLabel == null ||
                 _DashLabel == null || _FireBallLabel == null || _InvisibilityLabel == null || _SkillPointsLabel == null)
