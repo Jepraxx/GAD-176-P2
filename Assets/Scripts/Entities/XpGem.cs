@@ -23,6 +23,12 @@ public class XpGem : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.position, 1 * Time.deltaTime);
+        if(Physics2D.OverlapCircle(transform.position, 0.1f, 3) != false)
+        {
+            Debug.Log("Замечен персонаж по цифре");
+            transform.position = Vector3.MoveTowards(transform.position, player.position, 1 * Time.deltaTime);
+
+        }
     }
+    //сделать физикс детекшн для гемов
 }

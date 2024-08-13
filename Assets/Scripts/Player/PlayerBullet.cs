@@ -10,6 +10,26 @@ public class PlayerBullet : MonoBehaviour
     public float damage;
     public float bulletLifeTime;
 
+    public virtual void BulletEffect()
+    {
+
+    }
+
+    public virtual void OnDestroy()
+    {
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        // if(col.gameObject.TryGetComponent<SkelBase>(out SkelBase enemyScript))
+        // {
+        //     enemyScript.TakeDamage(damage);
+        // }
+
+        Destroy(gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +43,9 @@ public class PlayerBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Destroy(gameObject);
+        BulletEffect();
     }
+
+
+    //сделать инхеритансе и полиморфизм для пуль 
 }

@@ -20,7 +20,7 @@ public class PlayerAim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(Input.mousePosition);
+        // print(Input.mousePosition);
          mousePos = Camera.main.ScreenPointToRay(Input.mousePosition);
         dir = mousePos.direction;
         dir.z = 0;
