@@ -521,12 +521,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeedStat: 1
   maxHealthStat: 0
-  fireRate: 0
+  fireRate: 100
   damage: 0
   bulletSpeed: 0
-  bulletSpread: 0
   bulletAmount: 0
   bulletLifeTime: 0
+  xpMultiplier: 0
+  xp: 0
+  lvlUpRequirement: 100
+  requirementIncrease: 0
+  level: 1
 --- !u!114 &1398219534
 MonoBehaviour:
   m_ObjectHideFlags: 0

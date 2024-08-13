@@ -18,10 +18,10 @@ public class PlayerStats : MonoBehaviour
     public float xpMultiplier;
 
 
-    public float xp;
-    public float lvlUpRequirement;
-    public float requirementIncrease = 50;
-    public int level;
+    [SerializeField] private float xp;
+    [SerializeField] private float lvlUpRequirement;
+    [SerializeField] private float requirementIncrease = 50;
+    [SerializeField] private int level;
 
 
     public void GainXp(float gainedXp)

@@ -2,22 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private PlayerStats playerStats;
 
-    public Transform firePoint;
-    public Transform bulletPrefab;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private Transform bulletPrefab;
 
-    public float moveSpeed;
-    public int maxHealth;
-    public int health;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int health;
 
-    public PlayerWeapons currentWeapon;
+    [SerializeField] private PlayerWeapons currentWeapon;
 
     private bool isFiring = false;
     private float fireTimer;
+
+    private void PlayerMovement()
+    {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        rb.velocity = new Vector2(moveX * moveSpeed, moveY * moveSpeed);
+    }
+
+    private void Shooting()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            isFiring = true;
+        }
+        if(Input.GetMouseButtonUp(0))
+        {
+            isFiring = false;
+        }
+
+        if(isFiring)
+        {
+            fireTimer += Time.deltaTime;
+            if(fireTimer > 1 / currentWeapon.weaponFireRate + (1 + -playerStats.fireRate))
+            {
+                fireTimer = 0;
+                Shoot();
+            }
+
+            
+        }
+    }
 
 
     public void RefreshStats()
@@ -52,30 +84,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        PlayerMovement();
 
-        rb.velocity = new Vector2(moveX * moveSpeed, moveY * moveSpeed);
-
-        if(Input.GetMouseButtonDown(0))
-        {
-            isFiring = true;
-        }
-        if(Input.GetMouseButtonUp(0))
-        {
-            isFiring = false;
-        }
-
-        if(isFiring)
-        {
-            fireTimer += Time.deltaTime;
-            if(fireTimer > 1 / currentWeapon.weaponFireRate + (1 + -playerStats.fireRate))
-            {
-                fireTimer = 0;
-                Shoot();
-            }
-
-            
-        }
+        Shooting();
     }
 }
