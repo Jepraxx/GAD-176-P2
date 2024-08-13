@@ -1,0 +1,34 @@
+.StatPanel {
+    flex-grow: 0;
+    background-color: rgb(97, 142, 152);
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    width: 25%;
+}
+
+.HeaderLabel1 {
+    color: rgb(255, 255, 255);
+    font-size: 27px;
+    -unity-text-align: middle-center;
+    white-space: nowrap;
+    -unity-font-style: bold;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+    border-bottom-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+}
+
+.StatLabel {
+    color: rgb(255, 255, 255);
+    -unity-text-align: middle-center;
+    white-space: normal;
+    font-size: 24px;
+}

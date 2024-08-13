@@ -1,7 +1,23 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/StyleSheet.uss?fileID=7433441132597879392&amp;guid=a8e2726dd4df4704e9b04bcd6985a27c&amp;type=3#StyleSheet" />
     <ui:VisualElement name="MainPanel" style="flex-grow: 1; flex-direction: row; background-color: rgb(46, 46, 46);">
-        <ui:VisualElement name="StatsPanel" style="flex-grow: 1; background-color: rgb(87, 85, 85);" />
-        <ui:VisualElement name="SkillTree" style="flex-grow: 1;" />
-        <ui:VisualElement name="SkillPoints" style="flex-grow: 1;" />
+        <ui:VisualElement name="StatsPanel" class="StatPanel" style="border-right-width: 4px; flex-grow: 0; justify-content: center;">
+            <ui:Label tabindex="-1" text="Stats" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Header" class="HeaderLabel1" />
+            <ui:Label tabindex="-1" text="Strength- 0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StrengthLabel" class="StatLabel" />
+            <ui:Label tabindex="-1" text="Intelligence- 0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="IntelligenceLabel" class="StatLabel" />
+            <ui:Label tabindex="-1" text="Magic- 0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MagicLabel" class="StatLabel" />
+            <ui:Label tabindex="-1" text="Stamina- 0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="staminaLabel" class="StatLabel" />
+            <ui:Label tabindex="-1" text="Dexterity- 0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DexterityLabel" class="StatLabel" />
+            <ui:Label tabindex="-1" text="Abilities" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Ability" class="HeaderLabel1" />
+            <ui:Label tabindex="-1" text="Dash- Locked" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DashLabel" class="StatLabel" />
+            <ui:Label tabindex="-1" text="FireBall- Locked" parse-escape-sequences="true" display-tooltip-when-elided="true" name="FireBallLabel" class="StatLabel" />
+            <ui:Label tabindex="-1" text="Skill Points = 0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SkillPoints_Label" class="HeaderLabel1" />
+        </ui:VisualElement>
+        <ui:VisualElement name="SkillTree" style="flex-grow: 1;">
+            <ui:VisualElement name="1" style="flex-grow: 1;" />
+            <ui:VisualElement name="2" style="flex-grow: 1;" />
+            <ui:VisualElement name="3" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="SkillPoints" class="StatPanel" style="flex-grow: 0; border-left-width: 4px;" />
     </ui:VisualElement>
 </ui:UXML>

@@ -1,13 +1,13 @@
-using _Scripts.Skill_System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections.Generic;
+using System.Linq;
+using _Scripts.Skill_System;
 
 public class PlayerSkillManager : MonoBehaviour
 {
-    private int _strength, _dexterity, _intelligence, _magic, _stamina; //stats for the player
-    private int _dash, _fireBall, _invisiblity; //unlockables for the player
+    private int _strength, _dexterity, _intelligence, _magic, _stamina;
+    private int _dash, _fireBall, _invisibility;
     private int _skillPoints;
 
     public int Strength => _strength;
@@ -18,20 +18,25 @@ public class PlayerSkillManager : MonoBehaviour
 
     public bool Dash => _dash > 0;
     public bool FireBall => _fireBall > 0;
-    public bool Invisibility => _invisiblity > 0;
+    public bool Invisibility => _invisibility > 0;
     public int SkillPoints => _skillPoints;
 
     public UnityAction OnSkillPointsChanged;
-    private List<ScriptableSkill> _UnlockedSkills = new List<ScriptableSkill>();
+    private List<ScriptableSkill> _unlockedSkills = new List<ScriptableSkill>();
 
     private void Awake()
     {
+        InitializeStats();
+    }
+
+    private void InitializeStats()
+    {
         _skillPoints = 10;
+        _strength = 10;
         _intelligence = 10;
         _magic = 10;
         _stamina = 10;
         _dexterity = 10;
-        _strength = 10;
     }
 
     public void GainSkillPoint()
@@ -49,7 +54,7 @@ public class PlayerSkillManager : MonoBehaviour
     {
         if (!CanBuySkill(skill)) return;
         ModifyStats(skill);
-        _UnlockedSkills.Add(skill);
+        _unlockedSkills.Add(skill);
         _skillPoints -= skill.Cost;
         OnSkillPointsChanged?.Invoke();
     }
@@ -79,20 +84,9 @@ public class PlayerSkillManager : MonoBehaviour
         }
     }
 
-    public bool IsSkillUnlocked(ScriptableSkill skill)
-    {
-        return _UnlockedSkills.Contains(skill);
-    }
-
-    public bool PreReqMet(ScriptableSkill skill)
-    {
-        return skill.SkillPrerequisites.Count == 0 || skill.SkillPrerequisites.All(_UnlockedSkills.Contains);
-    }
-
     private void ModifyStat(ref int stat, UpgradeData data)
     {
-        bool isPercentage = data.IsPercentage;
-        if (isPercentage)
+        if (data.IsPercentage)
         {
             stat += (int)(stat * (data.SkillIncreaseAmount / 100f));
         }
@@ -100,5 +94,15 @@ public class PlayerSkillManager : MonoBehaviour
         {
             stat += data.SkillIncreaseAmount;
         }
+    }
+
+    public bool IsSkillUnlocked(ScriptableSkill skill)
+    {
+        return _unlockedSkills.Contains(skill);
+    }
+
+    public bool PreReqMet(ScriptableSkill skill)
+    {
+        return skill.SkillPrerequisites.Count == 0 || skill.SkillPrerequisites.All(_unlockedSkills.Contains);
     }
 }
