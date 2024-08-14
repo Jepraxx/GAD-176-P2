@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aa4881889f7048b49fbb47ab3bd1d8f, type: 3}
   m_Name: Uzi
   m_EditorClassIdentifier: 
-  weaponFireRate: 8
+  weaponFireRate: 10
   weaponDamage: 4
-  weaponBulletSpeed: 8
+  weaponBulletSpeed: 1
   weaponBulletSpread: 4
   weaponBulletAmount: 1
   weaponName: Uzi

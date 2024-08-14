@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Card", menuName = "Weapon Card")]
 public class PlayerWeapons : ScriptableObject
 {
+    // Variables for creating weapon scriptable objects
     public float weaponFireRate;
     public float weaponDamage;
 

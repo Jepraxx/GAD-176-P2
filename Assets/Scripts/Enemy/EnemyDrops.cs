@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class EnemyDrops : MonoBehaviour
 {
-    public GameObject xpGem;
-    public float xpAmount;
 
+    [SerializeField] private GameObject xpGem;
+    [SerializeField] private float xpAmount;
+
+    // When object destoys creates xp gems 
     private void OnDestroy()
     {
         GameObject xpDropped = Instantiate(xpGem, transform.position, transform.rotation);
