@@ -23,7 +23,7 @@ MonoBehaviour:
   SkillName: Wizard brain
   OverwriteDescription: 0
   SkillDescription: Wizard brain increases Intelligence by 20%,  Magic by 5%.
-  SkillIcon: {fileID: 0}
+  SkillIcon: {fileID: 21300000, guid: b19d644e8c3164c4cb72fbabbd7e11ec, type: 3}
   SkillPrerequisites: []
   skillTier: 3
   Cost: 4

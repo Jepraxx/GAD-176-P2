@@ -53,6 +53,8 @@ public class PlayerSkillManager : MonoBehaviour
     public void UnlockSkill(ScriptableSkill skill)
     {
         if (!CanBuySkill(skill)) return;
+        if (!PreReqMet(skill)) return;
+
         ModifyStats(skill);
         _unlockedSkills.Add(skill);
         _skillPoints -= skill.Cost;

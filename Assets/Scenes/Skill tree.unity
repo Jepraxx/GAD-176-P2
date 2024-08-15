@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 951500610}
   - component: {fileID: 951500613}
   - component: {fileID: 951500612}
+  - component: {fileID: 951500614}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -244,6 +245,18 @@ MonoBehaviour:
   skillLibrary: {fileID: 11400000, guid: 38cf02d3d1e0d5b4a89ab0d7508a998b, type: 2}
   uiTalentButton: {fileID: 9197481963319205126, guid: 2ddda305a36997445baec2fced912d02, type: 3}
   _talentButtons: []
+--- !u!114 &951500614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951500609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ae0b3db416aeb49aefb21039bab033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1853443899
 GameObject:
   m_ObjectHideFlags: 0

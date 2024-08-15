@@ -20,7 +20,7 @@ MonoBehaviour:
   SkillName: Dragons Mind
   OverwriteDescription: 0
   SkillDescription: Dragons Mind increases Intelligence by 20%.
-  SkillIcon: {fileID: 0}
+  SkillIcon: {fileID: 21300000, guid: 661a60bd81a89604abbac23f4893c31c, type: 3}
   SkillPrerequisites: []
   skillTier: 2
   Cost: 3

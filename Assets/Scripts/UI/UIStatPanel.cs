@@ -4,8 +4,7 @@ using UnityEngine.UIElements;
 public class UIStatPanel : MonoBehaviour
 {
     private Label _StrengthLabel, _IntelligenceLabel, _MagicLabel, _StaminaLabel, _DexterityLabel;
-    private Label _DashLabel, _FireBallLabel, _InvisibilityLabel;
-    private Label _SkillPointsLabel;
+    private Label _DashLabel, _FireBallLabel, _SkillPointsLabel;
 
     private UIManager _UIManager;
 
@@ -53,12 +52,11 @@ public class UIStatPanel : MonoBehaviour
 
             _DashLabel = uiDocument.rootVisualElement.Q<Label>("DashLabel");
             _FireBallLabel = uiDocument.rootVisualElement.Q<Label>("FireBallLabel");
-            _InvisibilityLabel = uiDocument.rootVisualElement.Q<Label>("InvisibilityLabel");
 
             _SkillPointsLabel = uiDocument.rootVisualElement.Q<Label>("SkillPoints_Label");
 
             if (_StrengthLabel == null || _IntelligenceLabel == null || _MagicLabel == null || _StaminaLabel == null || _DexterityLabel == null ||
-                _DashLabel == null || _FireBallLabel == null || _InvisibilityLabel == null || _SkillPointsLabel == null)
+                _DashLabel == null || _FireBallLabel == null || _SkillPointsLabel == null)
             {
                 Debug.LogError("One or more UI labels are missing in the UI document.");
             }
@@ -87,11 +85,5 @@ public class UIStatPanel : MonoBehaviour
         {
             Debug.LogError("PlayerSkillManager not found on the UIManager");
         }
-    }
-
-    void Update()
-    {
-        // Optionally update labels here
-        // PopulateLabelText();
     }
 }

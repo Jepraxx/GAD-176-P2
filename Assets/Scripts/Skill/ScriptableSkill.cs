@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -56,7 +55,9 @@ namespace _Scripts.Skill_System
                     sb.Append(" by ");
                     sb.Append(UpgradeData[i].SkillIncreaseAmount.ToString());
                     sb.Append(UpgradeData[i].IsPercentage ? "%" : " point(s)");
-                    sb.Append(i < UpgradeData.Count - 1 ? ", " : ".");
+                    if (i == UpgradeData.Count - 2) sb.Append(" and");
+                    else sb.Append(i < UpgradeData.Count - 1 ? ", " : ".");
+
                 }
                 SkillDescription = sb.ToString();
             }

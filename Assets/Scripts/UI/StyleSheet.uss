@@ -54,3 +54,7 @@
     justify-content: space-around;
     align-items: center;
 }
+
+.skill-tree-button {
+    font-size: 30px;
+}

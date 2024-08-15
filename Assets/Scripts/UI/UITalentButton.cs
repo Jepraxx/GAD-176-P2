@@ -1,23 +1,25 @@
 using UnityEngine;
-using UnityEngine.UIElements; // Use UI Toolkit's Button
-using _Scripts.Skill_System;
+using UnityEngine.UIElements;
 using UnityEngine.Events;
-
+using _Scripts.Skill_System;
 
 [System.Serializable]
 public class UITalentButton
 {
-    private Button _button; // Make sure this is UIElements.Button
+    private Button _button;
     private ScriptableSkill _skill;
     private bool _isUnlocked = false;
+    private UIManager _uiManager;
 
     public static UnityAction<ScriptableSkill> OnSkillButtonClicked;
 
-    public UITalentButton(Button assignedButton, ScriptableSkill assignedSkill)
+    public UITalentButton(Button assignedButton, ScriptableSkill assignedSkill, UIManager uiManager)
     {
         _button = assignedButton;
-        _button.clicked += OnClick;
         _skill = assignedSkill;
+        _uiManager = uiManager;
+
+        _button.clicked += OnClick;
 
         if (assignedSkill.SkillIcon)
         {
@@ -27,6 +29,13 @@ public class UITalentButton
 
     public void OnClick()
     {
-        OnSkillButtonClicked?.Invoke(_skill);
+        if (_uiManager.PlayerSkillManager.PreReqMet(_skill))
+        {
+            OnSkillButtonClicked?.Invoke(_skill);
+        }
+        else
+        {
+            Debug.Log("Prerequisites not met for this skill.");
+        }
     }
 }
