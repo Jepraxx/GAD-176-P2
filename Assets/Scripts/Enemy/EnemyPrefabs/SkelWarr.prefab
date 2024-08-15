@@ -116,6 +116,7 @@ MonoBehaviour:
   moveSpeed: 1
   distance: 20
   health: 5
+  skeletonData: {fileID: 11400000, guid: 503412c6bea6dd54081ee2da575b863a, type: 2}
   target: {fileID: 1135670417574249208}
 --- !u!61 &1655432295009436193
 BoxCollider2D:

@@ -11,17 +11,20 @@ using UnityEngine.SceneManagement;
 public class SkelBase : MonoBehaviour
 {
 
-    [SerializeField] protected float moveSpeed = 1f;
-    [SerializeField] protected float distance = 20f;
-    [SerializeField] protected float health = 5f;
-
+    [SerializeField] protected float moveSpeed;
+    [SerializeField] protected float distance;
+    [SerializeField] protected float health;
+    public SkeletonData skeletonData; // Reference to the Scriptable Object
     public Transform target;
 
     // At the start, find the player
     protected virtual void Start()
     {
+        moveSpeed = skeletonData.moveSpeed;
+        health = skeletonData.health;
+        distance = skeletonData.distance;
+
         FindPlayer();
-        TakeDamage();
     }
 
     // Find the player

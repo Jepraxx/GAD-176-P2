@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SkelArcher : SkelBase
 {
+
     public GameObject arrowPrefab;  //  arrow prefab here in the Inspector
     public Transform shootPoint;    // shoot point (where the arrow will spawn)
     public float shootInterval = 2f; // Time between each shot

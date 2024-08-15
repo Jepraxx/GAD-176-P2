@@ -148,6 +148,7 @@ MonoBehaviour:
   moveSpeed: 1
   distance: 20
   health: 5
+  skeletonData: {fileID: 11400000, guid: 99cc2b5d23ed4f646b6ebe24f8c62ab2, type: 2}
   target: {fileID: 8212204988179729602}
   arrowPrefab: {fileID: 8145465631936780051, guid: 886ab07f4cd376f48ab220768a718bdc, type: 3}
   shootPoint: {fileID: 6891029307218288379}
