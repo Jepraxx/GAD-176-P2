@@ -8,10 +8,25 @@ using UnityEngine;
 /// </summary>
 public class ArrowPool : MonoBehaviour
 {
+    public static ArrowPool Instance { get; private set; } // Singleton instance
     public GameObject arrowPrefab; // This is what an arrow looks like
     public int poolSize = 10; // We want 10 arrows
     private List<GameObject> arrowPool = new List<GameObject>(); // A list to keep the arrows
 
+
+    void Awake()
+    {
+        // Check if an instance already exists
+        if (Instance == null)
+        {
+            Instance = this; // Assign the instance to this object
+            DontDestroyOnLoad(gameObject); // Keep this object when loading new scenes
+        }
+        else
+        {
+            Destroy(gameObject); // If an instance already exists, destroy the duplicate
+        }
+    }
     void Start()
     {
         // Make 10 arrows and hide them
