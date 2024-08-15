@@ -9,10 +9,10 @@ using static UnityEngine.GraphicsBuffer;
 /// </summary>
 public class SkelWarr : SkelBase
 {
-    protected override void TakeDamage(float damageAmount = 1)
-    {
-        base.TakeDamage(damageAmount);
-    }
+    // protected override void TakeDamage(float damageAmount = 1)
+    // {
+    //     base.TakeDamage(damageAmount);
+    // }
     protected override void FindPlayer()
     {
         base.FindPlayer(); // Call the base find player method
@@ -27,5 +27,4 @@ public class SkelWarr : SkelBase
             transform.position = Vector2.MoveTowards(transform.position, target.position, modifiedSpeed * Time.deltaTime);
         }
     }
-
 }

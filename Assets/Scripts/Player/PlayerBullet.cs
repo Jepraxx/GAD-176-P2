@@ -21,12 +21,13 @@ public class PlayerBullet : MonoBehaviour
     // Deal damage to the enemies bullet touched
     private void OnTriggerEnter2D(Collider2D col)
     {
-        // if(col.gameObject.TryGetComponent<SkelBase>(out SkelBase enemyScript))
-        // {
-        //     enemyScript.TakeDamage(damage);
-        // }
+        if(col.gameObject.TryGetComponent<SkelBase>(out SkelBase enemyScript))
+        {
+            enemyScript.TakeDamage(damage);
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+
+        }
     }
 
     // Bullet movement and physics

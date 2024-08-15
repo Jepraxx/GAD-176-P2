@@ -61,5 +61,4 @@ public class ArrowPool : MonoBehaviour
         // Hide the arrow and put it back
         arrow.SetActive(false);
     }
-
 }

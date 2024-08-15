@@ -10,10 +10,12 @@ using UnityEngine.SceneManagement;
 
 public class SkelBase : MonoBehaviour
 {
-
+    [SerializeField] public float damage = 1;
+    [SerializeField] public float timer;
+    [SerializeField] public bool isAttacking = false;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float distance;
-    [SerializeField] protected float health;
+    [SerializeField] public float health;
     public SkeletonData skeletonData; // Reference to the Scriptable Object
     public Transform target;
 
@@ -41,6 +43,18 @@ public class SkelBase : MonoBehaviour
     private void Update()
     {
         Move(); // Call the move function
+        
+        if(isAttacking == true)
+        {
+            timer += Time.deltaTime;
+        }
+
+        if(timer >= 1)
+        {
+            target.GetComponent<PlayerController>().TakeDamage(damage);
+
+            timer = 0;
+        }
     }
 
     // This function is responsible for the tracking system of the skeletons, other skeletons would also inherit this function but can override it to have different behaviors.
@@ -56,13 +70,29 @@ public class SkelBase : MonoBehaviour
         }
     }
 
-    protected virtual void TakeDamage(float damageAmount = 1f)
+    public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
 
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.TryGetComponent<PlayerController>(out PlayerController playerScript))
+        {
+            isAttacking = true;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D col)
+    {
+        if(col.gameObject.TryGetComponent<PlayerController>(out PlayerController playerScript))
+        {
+            isAttacking = false;
         }
     }
 }

@@ -18,14 +18,14 @@ public class SkelArcher : SkelBase
         base.Start();
         InvokeRepeating("ShootArrow", 1f, shootInterval);  // Start shooting after 1 second, repeat every shootInterval seconds
     }
-    protected override void TakeDamage(float damageAmount = 1)
-    {
-        base.TakeDamage(damageAmount);
-    }
-    protected override void FindPlayer()
-    {
-        base.FindPlayer(); // Call the base find player method
-    }
+    // protected override void TakeDamage(float damageAmount)
+    // {
+    //     base.TakeDamage(damageAmount);
+    // }
+    // protected override void FindPlayer()
+    // {
+    //     base.FindPlayer(); // Call the base find player method
+    // }
 
 
     protected override void Move()

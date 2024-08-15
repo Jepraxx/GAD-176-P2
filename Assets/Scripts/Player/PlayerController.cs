@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private int maxHealth;
-    [SerializeField] private int health;
+    [SerializeField] public float health;
 
     [SerializeField] private PlayerWeapons currentWeapon;
 
@@ -90,6 +90,11 @@ public class PlayerController : MonoBehaviour
 
             
         }
+    }
+
+        public void TakeDamage(float damageAmount)
+    {
+        health -= damageAmount;
     }
 
     void Start()

@@ -28,7 +28,7 @@ public class XpGem : MonoBehaviour
     void Update()
     {
 
-        transform.position = Vector3.MoveTowards(transform.position, player.position, 1 * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, player.position, 4 * Time.deltaTime);
 
     }
 }

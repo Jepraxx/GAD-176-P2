@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6891029307218288379}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shootpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5961447419389990046}
   - component: {fileID: 3936384089008187048}
   - component: {fileID: 4737004007815031243}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SkelArcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
