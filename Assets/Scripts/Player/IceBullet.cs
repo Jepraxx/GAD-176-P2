@@ -42,7 +42,12 @@ public class IceBullet : PlayerBullet
         // Create an ice wall to stop the enemies
         if (iceWallPrefab != null)
         {
+            
             Instantiate(iceWallPrefab, transform.position, transform.rotation);
+        }
+        else
+        {
+            Debug.Log("Ice Wall Prefab is not attached to the script");
         }
         // Delete the bullet after exploding
         Destroy(gameObject); 

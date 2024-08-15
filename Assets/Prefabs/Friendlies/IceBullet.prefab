@@ -175,6 +175,6 @@ MonoBehaviour:
   bulletLifeTime: 2
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
-  iceWallPrefab: {fileID: 6571400107882386467, guid: f51fba0174fa1439d91babe27a8e7daf, type: 3}
+    m_Bits: 128
+  iceWallPrefab: {fileID: 7159705610981129231, guid: ca20cc52688624332b969c08cf2b74d9, type: 3}
   detectionRadius: 10
