@@ -14,9 +14,9 @@
             <ui:Label tabindex="-1" text="Skill Points = 0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SkillPoints_Label" class="HeaderLabel1" />
         </ui:VisualElement>
         <ui:VisualElement name="SkillTree" style="flex-grow: 1;">
-            <ui:VisualElement name="1" style="flex-grow: 1;" />
-            <ui:VisualElement name="2" style="flex-grow: 1;" />
-            <ui:VisualElement name="3" style="flex-grow: 1;" />
+            <ui:VisualElement name="1" class="skill-row" />
+            <ui:VisualElement name="2" class="skill-row" />
+            <ui:VisualElement name="3" class="skill-row" />
         </ui:VisualElement>
         <ui:VisualElement name="SkillPoints" class="StatPanel" style="flex-grow: 0; border-left-width: 4px;" />
     </ui:VisualElement>
