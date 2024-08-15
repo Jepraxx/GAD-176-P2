@@ -25,23 +25,4 @@ public class SkelWarr : SkelBase
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Damage();
-        }
-    }
-
-    // This lets SkelWarr get faster when it collides with the player
-    private void Damage()
-    {
-        //This part is where I will make a line of code that would access the players health and deal a certain amount of damage.
-        Debug.Log("SKELWARR TOUCHED THE PLAYER!");
-    }
-   /* protected override void DamagePlayer(GameObject player)
-    {
-        base.DamagePlayer(player); // Call the base method to deduct health and handle death
-        // You can add more logic here if you want SkelWarr to do something specific
-    }*/
 }

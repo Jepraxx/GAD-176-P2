@@ -11,8 +11,9 @@ using UnityEngine.SceneManagement;
 public class SkelBase : MonoBehaviour
 {
 
-    [SerializeField] protected float moveSpeed = 0.5f;
+    [SerializeField] protected float moveSpeed = 1f;
     [SerializeField] protected float distance = 20f;
+    [SerializeField] protected float health = 5f;
 
     public Transform target;
 
@@ -50,23 +51,14 @@ public class SkelBase : MonoBehaviour
             Debug.Log("Target is null. Ensure the player is tagged correctly.");
         }
     }
-  /*  protected virtual void DamagePlayer(GameObject player)
-    {
-        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
-        {
-            playerHealth.TakeDamage(1); // Adjust damage amount as needed
 
-            if (playerHealth.health <= 0)
-            {
-                HandlePlayerDeath(); // Handle what happens when the player dies
-            }
+    public void TakeDamage(float damageAmount)
+    {
+        health -= damageAmount;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
-
-    protected virtual void HandlePlayerDeath()
-    {
-        Debug.Log("Player has died! Restarting the level...");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Restart the current level
-    }*/
 }
