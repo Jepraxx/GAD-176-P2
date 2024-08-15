@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This script is the base skeleton script and all the
@@ -10,26 +11,32 @@ using UnityEngine;
 public class SkelBase : MonoBehaviour
 {
 
-    [SerializeField] protected float moveSpeed = 0.5f;
-    [SerializeField] protected float distance = 20f;
-
+    [SerializeField] protected float moveSpeed;
+    [SerializeField] protected float distance;
+    [SerializeField] protected float health;
+    public SkeletonData skeletonData; // Reference to the Scriptable Object
     public Transform target;
 
     // At the start, find the player
     protected virtual void Start()
     {
+        moveSpeed = skeletonData.moveSpeed;
+        health = skeletonData.health;
+        distance = skeletonData.distance;
+
         FindPlayer();
     }
 
     // Find the player
     protected virtual void FindPlayer()
     {
-        target = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         if (target == null)
         {
             Debug.Log("Player not found! Make sure the player has the 'Player' tag.");
         }
     }
+   
 
     private void Update()
     {
@@ -46,6 +53,16 @@ public class SkelBase : MonoBehaviour
         else if (target == null)
         {
             Debug.Log("Target is null. Ensure the player is tagged correctly.");
+        }
+    }
+
+    protected virtual void TakeDamage(float damageAmount = 1f)
+    {
+        health -= damageAmount;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

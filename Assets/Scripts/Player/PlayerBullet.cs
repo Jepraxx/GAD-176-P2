@@ -4,12 +4,32 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
+    // Variables
     private Rigidbody2D rb;
 
     public float bulletSpeed;
+    public float damage;
     public float bulletLifeTime;
 
-    // Start is called before the first frame update
+
+    // Virtual function for different types of bullets
+    public virtual void BulletEffect()
+    {
+
+    }
+
+    // Deal damage to the enemies bullet touched
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        // if(col.gameObject.TryGetComponent<SkelBase>(out SkelBase enemyScript))
+        // {
+        //     enemyScript.TakeDamage(damage);
+        // }
+
+        Destroy(gameObject);
+    }
+
+    // Bullet movement and physics
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,9 +39,9 @@ public class PlayerBullet : MonoBehaviour
         Destroy(gameObject, bulletLifeTime);
     }
 
-    // Update is called once per frame
+    // Call virtual function
     void Update()
     {
-        //Destroy(gameObject);
+        BulletEffect();
     }
 }
