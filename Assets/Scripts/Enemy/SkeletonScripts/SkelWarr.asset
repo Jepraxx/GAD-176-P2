@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd661593e61c7ed40853384f99e8d6d7, type: 3}
   m_Name: SkelWarr
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  health: 0
-  distance: 0
+  moveSpeed: 1
+  health: 5
+  distance: 20
