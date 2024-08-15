@@ -21,6 +21,7 @@ public class SkelBase : MonoBehaviour
     protected virtual void Start()
     {
         FindPlayer();
+        TakeDamage();
     }
 
     // Find the player
@@ -52,7 +53,7 @@ public class SkelBase : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageAmount)
+    protected virtual void TakeDamage(float damageAmount = 1f)
     {
         health -= damageAmount;
 
