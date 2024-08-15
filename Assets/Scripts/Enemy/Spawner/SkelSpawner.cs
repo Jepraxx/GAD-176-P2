@@ -10,6 +10,12 @@ public class SkelSpawner : MonoBehaviour
     public GameObject archerPrefab;    // SkelArcher prefab here in the Unity Inspector
     public Transform spawnPoint;       // Drag spawn point, Transform here in the Unity Inspector
 
+    void Start()
+    {
+        // Wait 1 second, then spawn every 5 seconds, made asimple spawning script with that takes a method name float time and the float repeat rate
+        // so basically the script will wait for 1 second and spawn one enemy every 5 seconds after
+        InvokeRepeating("SpawnEnemy", 1f, 5f); 
+    }
     void SpawnEnemy()
     {
         // decide which enemy to spawn (0 for SkelWarr, 1 for Archer)
@@ -26,4 +32,5 @@ public class SkelSpawner : MonoBehaviour
             Debug.Log("Spawned Archer!");
         }
     }
+
 }

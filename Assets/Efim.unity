@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -345,6 +345,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1398219530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &959062556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 959062558}
+  - component: {fileID: 959062557}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &959062557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959062556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 426dd8dfbbc60a947aaf7c7aa7ff1157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skelWarrPrefab: {fileID: 5161023444072460672, guid: 89ee832e21d6a3f4c8ba0d48e3b0c452, type: 3}
+  archerPrefab: {fileID: 8166926895740617126, guid: b8a8dff241eaf854490ca7a6bd6ebd1a, type: 3}
+  spawnPoint: {fileID: 959062558}
+--- !u!4 &959062558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959062556}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.23, y: 7.51, z: 2.6564972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1398219528
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +408,7 @@ GameObject:
   - component: {fileID: 1398219531}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -545,7 +592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 413783480}
   bulletPrefab: {fileID: 6718758372344679972, guid: b2749c6b4241b4745ac4548aa4f44405, type: 3}
-  moveSpeed: 0
+  moveSpeed: 10
   maxHealth: 0
   health: 0
   currentWeapon: {fileID: 11400000, guid: d25fd67f31ee344fda046f1ca50454de, type: 2}
@@ -649,3 +696,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1833055074}
   - {fileID: 1398219530}
+  - {fileID: 959062558}
