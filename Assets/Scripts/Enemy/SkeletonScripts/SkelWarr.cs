@@ -5,11 +5,14 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 /// <summary>
 /// This script is entirely dedicated for SkelWarr and this 
-/// script would inherit from SkelBase and would override
-/// the move method that the SkelBase has
+/// script would inherit from SkelBase 
 /// </summary>
 public class SkelWarr : SkelBase
 {
+    protected override void TakeDamage(float damageAmount = 1)
+    {
+        base.TakeDamage(damageAmount);
+    }
     protected override void FindPlayer()
     {
         base.FindPlayer(); // Call the base find player method
