@@ -10,24 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 585169e860c6ce447bbbf074c0216877, type: 3}
-  m_Name: Titans Strength
+  m_Name: Wizard Brain
   m_EditorClassIdentifier: 
   UpgradeData:
-  - StatType: 0
-    SkillIncreaseAmount: 5
-    IsPercentage: 0
-  - StatType: 1
-    SkillIncreaseAmount: 15
-    IsPercentage: 1
   - StatType: 2
+    SkillIncreaseAmount: 20
+    IsPercentage: 1
+  - StatType: 3
     SkillIncreaseAmount: 5
     IsPercentage: 1
   IsAbility: 0
-  SkillName: Titans Strength
+  SkillName: Wizard brain
   OverwriteDescription: 0
-  SkillDescription: Titans Strength increases Strength by 5 point(s),  Dexterity
-    by 15%,  Intelligence by 5%.
-  SkillIcon: {fileID: 21300000, guid: bbe130c42de909549b0d981d640668b3, type: 3}
+  SkillDescription: Wizard brain increases Intelligence by 20%,  Magic by 5%.
+  SkillIcon: {fileID: 21300000, guid: b19d644e8c3164c4cb72fbabbd7e11ec, type: 3}
   SkillPrerequisites: []
-  skillTier: 1
-  Cost: 1
+  skillTier: 3
+  Cost: 4
