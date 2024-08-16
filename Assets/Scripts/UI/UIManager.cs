@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
         {
             Debug.LogError("PlayerSkillManager component is not found in the scene."); // Logs an error if PlayerSkillManager is not found
         }
+        TurnOff();
     }
 
     private void Start()
@@ -93,5 +94,15 @@ public class UIManager : MonoBehaviour
         var icon = skillPointsPanel.Q<VisualElement>("icon"); // Finds the icon element
         icon.style.backgroundImage = new StyleBackground(Texture2D.whiteTexture); // Sets the icon to a white texture or remove element
         icon.style.display = DisplayStyle.None; // Hides the icon element
+    }
+
+    public void TurnOn()
+    {
+        _uiDocument.rootVisualElement.visible = true;
+    }
+
+        public void TurnOff()
+    {
+        _uiDocument.rootVisualElement.visible = false;
     }
 }

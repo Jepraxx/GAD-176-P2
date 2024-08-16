@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PlayerStats : MonoBehaviour
 
     public float xpMultiplier;
 
+    [SerializeField] public GameObject ui;
 
     [SerializeField] private float xp;
     [SerializeField] private float lvlUpRequirement;
@@ -42,5 +44,11 @@ public class PlayerStats : MonoBehaviour
         lvlUpRequirement += requirementIncrease;
 
         requirementIncrease += level * 10;
+
+        UIManager ui = Object.FindObjectOfType<UIManager>();
+
+        Time.timeScale = 0;
+        ui.TurnOn();
+    
     }
 }

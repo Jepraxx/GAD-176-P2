@@ -70,6 +70,11 @@ public class PlayerSkillManager : MonoBehaviour
         _unlockedSkills.Add(skill); // Add skill to the list of unlocked skills
         _skillPoints -= skill.Cost; // Deduct the skill cost from skill points
         OnSkillPointsChanged?.Invoke(); // Notify subscribers of skill point change
+
+        UIManager ui = Object.FindObjectOfType<UIManager>();
+
+        ui.TurnOff();
+        Time.timeScale = 1;
     }
 
     // Applies the skill's upgrades to the player's stats

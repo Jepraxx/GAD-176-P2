@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Player movement
-        private void PlayerMovement()
+    private void PlayerMovement()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Instantiating bullets and giving stats to bullets
-        public void Shoot()
+    public void Shoot()
     {
         for(int i = 0; i < currentWeapon.weaponBulletAmount + playerStats.bulletAmount; i++)
         {
@@ -86,13 +86,11 @@ public class PlayerController : MonoBehaviour
             {
                 fireTimer = 0;
                 Shoot();
-            }
-
-            
+            }           
         }
     }
 
-        public void TakeDamage(float damageAmount)
+    public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
     }
