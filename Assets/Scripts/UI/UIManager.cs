@@ -6,6 +6,7 @@ using System.Linq; // Importing the System.Linq namespace for LINQ queries
 
 public class UIManager : MonoBehaviour
 {
+    private ScriptableSkill _assignedSkill;
     [SerializeField] private ScriptableSkillLibrary skillLibrary; // Reference to the ScriptableSkillLibrary to access skills
     public ScriptableSkillLibrary SkillLibrary => skillLibrary; // Public getter for the skillLibrary reference
 
@@ -95,6 +96,7 @@ public class UIManager : MonoBehaviour
         icon.style.backgroundImage = new StyleBackground(Texture2D.whiteTexture); // Sets the icon to a white texture or remove element
         icon.style.display = DisplayStyle.None; // Hides the icon element
     }
+
 
     public void TurnOn()
     {

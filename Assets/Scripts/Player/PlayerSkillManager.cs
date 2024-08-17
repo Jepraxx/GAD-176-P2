@@ -7,9 +7,9 @@ using _Scripts.Skill_System;
 public class PlayerSkillManager : MonoBehaviour
 {
     // Private fields for player stats and skill points
-    private int _strength, _dexterity, _intelligence, _magic, _stamina;
+    [SerializeField] private int _strength, _dexterity, _intelligence, _magic, _stamina;
     private int _dash, _fireBall, _invisibility; // Skill levels (assuming integer values represent unlocked skills)
-    private int _skillPoints; // Number of skill points available
+    [SerializeField] private int _skillPoints; // Number of skill points available
 
     // Public properties to expose player stats and skill status
     public int Strength => _strength;
@@ -129,6 +129,11 @@ public class PlayerSkillManager : MonoBehaviour
     public bool PreReqMet(ScriptableSkill skill)
     {
         // Returns true if there are no prerequisites or all prerequisites are unlocked
-        return skill.SkillPrerequisites.Count == 0 || skill.SkillPrerequisites.All(_unlockedSkills.Contains);
+        // Debug.Log(skill.SkillPrerequisites.All(_unlockedSkills.Contains));
+        Debug.Log("skill tier " + skill.skillTier);
+        Debug.Log("skill count " + _unlockedSkills.Count);
+        Debug.Log((_unlockedSkills.Count + 1 == skill.skillTier));
+        return (_unlockedSkills.Count + 1 == skill.skillTier);
+        // return skill.SkillPrerequisites.Count == 0 ;//|| skill.SkillPrerequisites.All(_unlockedSkills.Contains);
     }
 }

@@ -98,4 +98,9 @@ public class UIStatPanel : MonoBehaviour
             Debug.LogError("PlayerSkillManager not found on the UIManager"); // Logs an error if PlayerSkillManager is missing
         }
     }
+
+    void Update()
+    {
+        PopulateLabelText();
+    }
 }

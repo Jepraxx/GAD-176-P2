@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpGem: {fileID: 8767567300942928624, guid: 7d086eb24e5604ce6be203cf7a25f4e3, type: 3}
-  xpAmount: 3
+  xpAmount: 10
 --- !u!212 &5961447419389990046
 SpriteRenderer:
   m_ObjectHideFlags: 0

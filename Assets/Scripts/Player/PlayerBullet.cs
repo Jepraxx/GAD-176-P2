@@ -26,7 +26,6 @@ public class PlayerBullet : MonoBehaviour
             enemyScript.TakeDamage(damage);
 
             Destroy(gameObject);
-
         }
     }
 

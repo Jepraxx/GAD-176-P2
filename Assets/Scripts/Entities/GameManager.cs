@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     private void PlayerIsDead()
     {
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene(0);
     }
 
     // Using singletons

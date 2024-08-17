@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace _Scripts.Skill_System
 {
@@ -28,6 +29,7 @@ namespace _Scripts.Skill_System
 
         // List of prerequisite skills required to unlock this skill
         public List<ScriptableSkill> SkillPrerequisites = new List<ScriptableSkill>();
+
 
         // Tier level of the skill
         public int skillTier;

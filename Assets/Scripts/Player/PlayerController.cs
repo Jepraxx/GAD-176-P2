@@ -31,12 +31,15 @@ public class PlayerController : MonoBehaviour
         maxHealth = playerStats.maxHealthStat;
     }
 
-    private void Die()
+    public void Die()
     {
         if(health <= 0)
         {
+            Debug.Log("you are dead");
+
             if(IsPlayerDeadEvent != null)
             {
+                Debug.Log(IsPlayerDeadEvent != null);
                 IsPlayerDeadEvent();
             }
         }
@@ -109,5 +112,7 @@ public class PlayerController : MonoBehaviour
         PlayerMovement();
 
         Shooting();
+
+        Die();
     }
 }

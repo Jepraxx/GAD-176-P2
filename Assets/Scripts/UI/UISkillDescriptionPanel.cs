@@ -10,7 +10,7 @@ public class UISkillDescriptionPanel : MonoBehaviour
     private ScriptableSkill _assignedSkill; // The currently assigned skill to display
     private VisualElement _skillImage; // UI element for displaying the skill's image
     private Label _skillNameLabel, _skillDescriptionLabel, _skillCostLabel, _skillPreReqLabel; // UI labels for displaying skill details
-    private Button _purchaseSkillButton; // Button for purchasing the skill
+    public Button _purchaseSkillButton; // Button for purchasing the skill
 
     private void Awake()
     {
@@ -116,28 +116,28 @@ public class UISkillDescriptionPanel : MonoBehaviour
         }
 
         // Update the purchase button text and state
-        if (_purchaseSkillButton != null)
-        {
-            if (_uiManager.PlayerSkillManager.IsSkillUnlocked(_assignedSkill))
-            {
-                _purchaseSkillButton.text = "Bought"; // Sets the button text to "Bought" if the skill is unlocked
-                _purchaseSkillButton.SetEnabled(false); // Disables the button
-            }
-            else if (!_uiManager.PlayerSkillManager.PreReqMet(_assignedSkill))
-            {
-                _purchaseSkillButton.text = "PreReqs Have Not Been Met"; // Sets the button text if prerequisites are not met
-                _purchaseSkillButton.SetEnabled(false); // Disables the button
-            }
-            else if (!_uiManager.PlayerSkillManager.CanBuySkill(_assignedSkill))
-            {
-                _purchaseSkillButton.text = "Cannot Buy This"; // Sets the button text if the skill cannot be bought
-                _purchaseSkillButton.SetEnabled(false); // Disables the button
-            }
-            else
-            {
-                _purchaseSkillButton.text = "Buy"; // Sets the button text to "Buy" if the skill can be bought
-                _purchaseSkillButton.SetEnabled(true); // Enables the button
-            }
-        }
+        // if (_purchaseSkillButton != null)
+        // {
+        //     if (_uiManager.PlayerSkillManager.IsSkillUnlocked(_assignedSkill))
+        //     {
+        //         _purchaseSkillButton.text = "Bought"; // Sets the button text to "Bought" if the skill is unlocked
+        //         _purchaseSkillButton.SetEnabled(false); // Disables the button
+        //     }
+        //     else if (!_uiManager.PlayerSkillManager.PreReqMet(_assignedSkill))
+        //     {
+        //         _purchaseSkillButton.text = "PreReqs Have Not Been Met"; // Sets the button text if prerequisites are not met
+        //         _purchaseSkillButton.SetEnabled(false); // Disables the button
+        //     }
+        //     else if (!_uiManager.PlayerSkillManager.CanBuySkill(_assignedSkill))
+        //     {
+        //         _purchaseSkillButton.text = "Cannot Buy This"; // Sets the button text if the skill cannot be bought
+        //         _purchaseSkillButton.SetEnabled(false); // Disables the button
+        //     }
+        //     else
+        //     {
+        //         _purchaseSkillButton.text = "Buy"; // Sets the button text to "Buy" if the skill can be bought
+        //         _purchaseSkillButton.SetEnabled(true); // Enables the button
+        //     }
+        // }
     }
 }

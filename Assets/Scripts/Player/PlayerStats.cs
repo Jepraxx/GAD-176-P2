@@ -45,10 +45,11 @@ public class PlayerStats : MonoBehaviour
 
         requirementIncrease += level * 10;
 
-        UIManager ui = Object.FindObjectOfType<UIManager>();
+        // Turn on code below when skills will be ready
 
-        Time.timeScale = 0;
-        ui.TurnOn();
-    
+        // UIManager ui = Object.FindObjectOfType<UIManager>();
+
+        // Time.timeScale = 0;
+        // ui.TurnOn();
     }
 }
